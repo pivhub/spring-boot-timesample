@@ -2,6 +2,7 @@
 
 ### Dockerize
 Create `Dockerfile` like the one in this repo
+
     mvn package
     docker build -t spring-boot-timesample .
 
