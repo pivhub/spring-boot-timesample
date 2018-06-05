@@ -12,5 +12,3 @@ Create `Dockerfile` like the one in this repo
 
 ### Run in Docker
     docker run -ti --rm -p 8080:8080 jaimegag/spring-boot-timesample
-
-### Deploy in Kubernetes
