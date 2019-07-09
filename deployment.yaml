@@ -5,11 +5,13 @@ metadata:
   labels:
     name: timesample
   name: timesample
-  namespace: ingress-nginx
 spec:
+  type: NodePort
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: 8080
+      nodePort: 30080
   selector:
     app: timesample
 ---
@@ -17,9 +19,8 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: timesample
-  namespace: ingress-nginx
 spec:
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
@@ -27,6 +28,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-timesample
-        image: jaimegag/spring-boot-timesample
+        image: jaimegag/spring-boot-timesample  #change me 
         ports:
         - containerPort: 8080
